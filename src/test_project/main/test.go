@@ -1,24 +1,21 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
-func init() {
-	//a := func(n int, n2 int) int {
-	//	return 1111111
-	//}(1, 2)
-	//
-	//fmt.Println(a)
-	//b := func(n int, n2 int) int {
-	//	return 22222
-	//}
-	//
-	//fmt.Println(b(3, 3))
-	now := time.Now()
-	fmt.Println(now)
-}
+//func init() {
+//	//a := func(n int, n2 int) int {
+//	//	return 1111111
+//	//}(1, 2)
+//	//
+//	//fmt.Println(a)
+//	//b := func(n int, n2 int) int {
+//	//	return 22222
+//	//}
+//	//
+//	//fmt.Println(b(3, 3))
+//	now := time.Now()
+//	fmt.Println(now)
+//}
 
 func biBao() func(int) int {
 
@@ -30,19 +27,30 @@ func biBao() func(int) int {
 }
 
 func main() {
-	f := biBao()
-	defer fmt.Println(f(1))
-	defer fmt.Println(f(2))
-	fmt.Println(f(3))
-	fmt.Println(f(4))
+	//f := biBao()
+	//defer fmt.Println(f(1))
+	//defer fmt.Println(f(2))
+	//fmt.Println(f(3))
+	//fmt.Println(f(4))
 	//f := getFunc(1)
 	//s := f("a")
 	//fmt.Println(s)
 	//
 	//service.GetNameById(1)
 	//service.ForRange("Hello Go ")
+	i := zero(2, 0)
+	fmt.Println(i)
 }
 
+func zero(a int, b int) int {
+	defer func() {
+		err := recover()
+		if err != nil {
+			fmt.Println(err)
+		}
+	}()
+	return a / b
+}
 func addNum(a int, b int) (int, string) {
 	return a + b, "sss"
 }
